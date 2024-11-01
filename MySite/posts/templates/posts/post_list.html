@@ -1,0 +1,19 @@
+
+<h1>Жанры:</h1>
+{% for genre in genres %}
+    <a href="?genre_id={{genre.id}}">{{ genre.name }}</a> <br>
+{% endfor %}
+<a href="{% url 'post_list' %}">Все посты</a> <br>
+
+<a href="{% url 'create_post' %}">Создать пост</a> <br>
+
+<h1>Посты:</h1>
+{% for post in posts %}
+    <div onclick="location.href='{% url 'post' post.id %}'" class="post">
+
+        <h2>{{ post.title }}</h2> 
+        <p><i>{{post.created_at }}</i></p>
+        <p>{{ post.content | truncatechars:250 | linebreaks}}</p>
+        <hr>
+    </div>
+{% endfor %}

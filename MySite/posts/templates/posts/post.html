@@ -1,0 +1,10 @@
+
+<h2>{{ post.title }}</h2> 
+{% if post.image %}
+    <img src="{{ post.image.url }}" alt="Изображение" style="max-width: 700px;">
+{% endif %}
+<p><i>{{post.created_at}}</i></p>
+<p>{{ post.content | linebreaks}}</p>
+
+
+<a href="{% url 'post_list' %}">Вернуться обратно</a>
